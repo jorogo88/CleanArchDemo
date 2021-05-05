@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IOC;
+using ClearArch.Api.Configurations;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +44,7 @@ namespace ClearArch.Api
                 c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "University API", Version = "V1" });
             });
             services.AddMediatR(typeof(Startup));
+            services.RegisterAutoMapper();
 
             RegisterServices(services);
 
